@@ -3,7 +3,7 @@ import { NavLink } from "react-router";
 function Navbar() {
   function handleActive({ isActive }) {
     return isActive
-      ? "bg-neutral-500 px-3 py-1 rounded-3xl shadow-[inset_0_2px_4px_0_rgba(0,0,0,0.4)] text-neutral-100"
+      ? "bg-neutral-500 px-3 py-1 rounded-3xl shadow-[inset_0_2px_4px_0_rgba(0,0,0,0.4)] text-neutral-100 hover:bg-[#666] transition-color"
       : "px-3";
   }
 

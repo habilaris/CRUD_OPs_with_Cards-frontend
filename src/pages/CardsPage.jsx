@@ -42,7 +42,7 @@ function CardsPage({ title, isDeletePage }) {
               id={index}
               name={card.name}
               age={card.age}
-              gender="Male"
+              gender={card.gender}
               // gender={card.gender}
               // isActive={card.isActive}
               isActive={true}

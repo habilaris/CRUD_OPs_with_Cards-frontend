@@ -1,4 +1,4 @@
-function uploadCardData(name, age) {
+function uploadCardData(name, age, gender) {
   const URL = "http://localhost:3000/api/admin/create-card";
 
   fetch(URL, {
@@ -6,7 +6,7 @@ function uploadCardData(name, age) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name: name, age: age, gender: "male" }),
+    body: JSON.stringify({ name, age, gender }),
   })
     .then((response) => {
       console.log("Request made to the server!");

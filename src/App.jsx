@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import ErrorPage from "./pages/ErrorPage";
 import Navbar from "./components/Navbar";
 import DeleteCardsPage from "./pages/DeleteCardsPage";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }

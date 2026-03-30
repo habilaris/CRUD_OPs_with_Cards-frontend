@@ -2,10 +2,17 @@ import { useState } from "react";
 import uploadCardData from "../api/UploadCardData";
 
 function CardForm() {
+  // requestStatus state is used to show the toast message after the request is made to the server and data is submitted successfully, if yes then true.
   const [requestStatus, setRequestStatus] = useState(false);
 
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
+  const [gender, setGender] = useState(null);
+
+  const handleGender = (e) => {
+    setGender(e.target.value);
+    console.log(gender);
+  };
 
   return (
     <div>
@@ -55,7 +62,10 @@ function CardForm() {
                 name="gender"
                 id="male"
                 className="mr-1"
-                value="male"
+                value="Male"
+                onChange={handleGender}
+                checked={gender === "Male"}
+                // input will be checked only in the case, if gender state will be equal to Male
               />
               <label htmlFor="male">Male</label>
             </div>
@@ -66,7 +76,10 @@ function CardForm() {
                 name="gender"
                 id="female"
                 className="pr-6 mr-1"
-                value="female"
+                value="Female"
+                onChange={handleGender}
+                checked={gender === "Female"}
+                // input will be checked only in the case, if gender state will be equal to Female
               />
               <label htmlFor="female">Female</label>
             </div>
@@ -80,7 +93,7 @@ function CardForm() {
             if (!name) {
               console.log("Please enter something in the name field!");
             } else {
-              uploadCardData(name, age);
+              uploadCardData(name, age, gender);
               setRequestStatus(true);
             }
           }}
@@ -89,6 +102,7 @@ function CardForm() {
         </button>
       </form>
 
+      {/* Toast Message */}
       {requestStatus && (
         <p
           id="toast"
