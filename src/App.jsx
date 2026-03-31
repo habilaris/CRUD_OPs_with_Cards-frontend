@@ -7,11 +7,12 @@ import ErrorPage from "./pages/ErrorPage";
 import Navbar from "./components/Navbar";
 import DeleteCardsPage from "./pages/DeleteCardsPage";
 import Footer from "./components/Footer";
+import UpdateCardsPage from "./pages/UpdateCardsPage";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg-neutral-200 w-dvw min-h-dvh flex flex-col items-center justify-center py-10">
+      <div className="bg-neutral-200 w-dvw min-h-dvh flex flex-col items-center justify-center py-35 px-10">
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -22,6 +23,7 @@ function App() {
           />
           <Route path="/admin/create-card" element={<CreateCardPage />} />
           <Route path="/admin/delete-cards" element={<DeleteCardsPage />} />
+          <Route path="/admin/update-cards" element={<UpdateCardsPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>

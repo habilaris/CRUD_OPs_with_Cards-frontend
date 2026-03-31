@@ -15,10 +15,10 @@ function CardForm() {
   };
 
   return (
-    <div>
+    <div className="flex justify-center items-center">
       <form
         id="form"
-        className="text-xl shadow-xl py-6 px-8 rounded-2xl bg-neutral-50 relative"
+        className="text-xl shadow-xl py-6 px-8 rounded-2xl bg-neutral-50 relative w-65 md:w-fit ite"
       >
         <div className="name-container mb-4">
           <label htmlFor="name" className="block text-neutral-700 pl-3 mb-1">
@@ -32,7 +32,7 @@ function CardForm() {
               setName(e.target.value);
             }}
             placeholder="John Doe"
-            className="bg-neutral-200 w-xs h-10 rounded-md pl-8 outline-none"
+            className="bg-neutral-200 w-50 md:w-xs h-10 rounded-md pl-8 outline-none"
           />
         </div>
         <div className="age-container mb-4">
@@ -47,7 +47,7 @@ function CardForm() {
               setAge(e.target.value);
             }}
             placeholder="25"
-            className="bg-neutral-200 w-xs h-10 rounded-md pl-8 outline-none"
+            className="bg-neutral-200 w-50 md:w-xs h-10 rounded-md pl-8 outline-none "
           />
         </div>
         <div className="gender-container mb-4">
