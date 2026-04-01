@@ -1,7 +1,7 @@
 import { useState } from "react";
-import uploadCardData from "../api/UploadCardData";
+// import updateCardData from "../api/UpdateCardData";
 
-function CompleteUpdateForm() {
+function CompleteUpdateForm({ setShowCompleteUpdateForm }) {
   // requestStatus state is used to show the toast message after the request is made to the server and data is submitted successfully, if yes then true.
   const [requestStatus, setRequestStatus] = useState(false);
 
@@ -22,7 +22,7 @@ function CompleteUpdateForm() {
       >
         <div className="name-container mb-4">
           <label htmlFor="name" className="block text-neutral-700 pl-3 mb-1">
-            Enter your name:
+            Update your name:
           </label>
           <input
             type="text"
@@ -37,7 +37,7 @@ function CompleteUpdateForm() {
         </div>
         <div className="age-container mb-4">
           <label htmlFor="age" className="block text-neutral-700 pl-3 mb-1 ">
-            Enter your age:
+            Update your age:
           </label>
           <input
             type="number"
@@ -52,10 +52,10 @@ function CompleteUpdateForm() {
         </div>
         <div className="gender-container mb-4">
           <label className="block text-neutral-700 pl-3 mb-1 ">
-            Select your gender:
+            Update your gender:
           </label>
 
-          <div className="gender-options text-neutral-600 ml-3">
+          <div className="gender-options text-neutral-600 ml-3 mb-6">
             <div className="inline mr-4">
               <input
                 type="radio"
@@ -85,21 +85,30 @@ function CompleteUpdateForm() {
             </div>
           </div>
         </div>
-
-        <button
-          className="rounded-md w-full h-8 bg-blue-600 hover:bg-blue-500 text-neutral-50 font-medium cursor-pointer transition-all ease-in duration-150"
-          onClick={(event) => {
-            event.preventDefault();
-            if (!name) {
-              console.log("Please enter something in the name field!");
-            } else {
-              uploadCardData(name, age, gender);
-              setRequestStatus(true);
-            }
-          }}
-        >
-          Submit
-        </button>
+        <div className="flex gap-3">
+          <button
+            className="rounded-md w-full bg-[#48d04d] hover:bg-[#5de961] text-neutral-50 font-medium cursor-pointer transition-all ease-in duration-150"
+            onClick={(event) => {
+              event.preventDefault();
+              if (!name) {
+                console.log("Please enter something in the name field!");
+              } else {
+                // updateCardData();
+                setRequestStatus(true);
+              }
+            }}
+          >
+            Submit
+          </button>
+          <button
+            className="rounded-md w-full h-8 bg-[#fd3d3d] hover:bg-red-400 text-neutral-50 font-medium cursor-pointer transition-all ease-in duration-150"
+            onClick={() => {
+              setShowCompleteUpdateForm(false);
+            }}
+          >
+            Discard
+          </button>
+        </div>
       </form>
 
       {/* Toast Message */}

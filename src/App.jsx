@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CardsPage from "./pages/CardsPage";
 import HomePage from "./pages/HomePage";
 import CreateCardPage from "./pages/CreateCardPage";
@@ -9,48 +9,39 @@ import Navbar from "./components/Navbar";
 import DeleteCardsPage from "./pages/DeleteCardsPage";
 import Footer from "./components/Footer";
 import UpdateCardsPage from "./pages/UpdateCardsPage";
+import CompleteUpdateForm from "./components/CompleteUpdateForm";
+import UpdatePopUp from "./components/UpdatePopUp";
 
 function App() {
   // Flow of props: App -> UpdateCardsPage -> CardsPage -> Card
+  // SHOWS UPDATE POPUP
   const [showUpdatePopup, setShowUpdatePopup] = useState(false);
-  console.log("showUpdatePopup:", showUpdatePopup);
-  useEffect(() => {
-    console.log(showUpdatePopup);
-  }, [showUpdatePopup]);
+
+  // SHOWS COMPLETE UPDATE FORM
+  const [showCompleteUpdateForm, setShowCompleteUpdateForm] = useState(false);
+  // SHOWS PARTIAL UPDATE FORM
+  // const [showPartialUpdateForm, setShowPartialUpdateForm] = useState(false);
 
   return (
     <BrowserRouter>
+      {/* UI Starts from Here */}
       <div className="bg-neutral-200 w-dvw min-h-dvh flex flex-col items-center justify-center py-35 px-10">
+        {/* Update Popup */}
         {showUpdatePopup && (
           <div className="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] bg-opacity-50 flex items-center justify-center z-90">
-            <div className="bg-neutral-100 p-6 rounded-xl shadow-md relative">
-              <label className="block font-semibold text-neutral-800">
-                Do you want to update the card completely or partially?
-              </label>
-              <p className="text-neutral-600">
-                Select an option to proceed with the update.
-              </p>
-              <div className="flex gap-2">
-                <button className="bg-green-600 text-white px-4 py-2 rounded-2xl mt-4 hover:bg-green-500 transition-colors duration-200 cursor-pointer">
-                  Complete
-                </button>
-                <button
-                  className="text-white px-4 py-2 rounded-2xl mt-4 disabled:bg-neutral-500 cursor-not-allowed"
-                  disabled
-                >
-                  Partial
-                </button>
-
-                <button
-                  className="bg-orange-600 text-white px-4 py-2 rounded-full mt-4 hover:bg-red-400 transition-colors duration-200 cursor-pointer absolute right-6"
-                  onClick={() => {
-                    setShowUpdatePopup(false);
-                  }}
-                >
-                  Discard
-                </button>
-              </div>
-            </div>
+            <UpdatePopUp
+              setShowUpdatePopup={setShowUpdatePopup}
+              setShowCompleteUpdateForm={setShowCompleteUpdateForm}
+              // setShowCompletePartialForm={setShowCompletePartialForm}
+            />
+          </div>
+        )}
+        {/* Complete Update Form */}
+        {showCompleteUpdateForm && (
+          <div className="fixed z-100 h-full w-full flex items-center justify-center bg-[rgba(0,0,0,0.5)]">
+            <CompleteUpdateForm
+              setShowCompleteUpdateForm={setShowCompleteUpdateForm}
+            />
           </div>
         )}
         <Navbar />
