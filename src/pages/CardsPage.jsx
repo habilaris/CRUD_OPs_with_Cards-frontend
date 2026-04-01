@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 
-function CardsPage({ title, isDeletePage }) {
+function CardsPage({ title, isDeletePage, isUpdatePage, setShowUpdatePopup }) {
   let [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -48,6 +48,8 @@ function CardsPage({ title, isDeletePage }) {
               isActive={true}
               isDeletePage={isDeletePage}
               cardsLength={cards.length}
+              isUpdatePage={isUpdatePage}
+              setShowUpdatePopup={setShowUpdatePopup}
             />
           );
         })}

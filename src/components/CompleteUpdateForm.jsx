@@ -1,7 +1,7 @@
 import { useState } from "react";
 import uploadCardData from "../api/UploadCardData";
 
-function CardForm() {
+function CompleteUpdateForm() {
   // requestStatus state is used to show the toast message after the request is made to the server and data is submitted successfully, if yes then true.
   const [requestStatus, setRequestStatus] = useState(false);
 
@@ -118,4 +118,4 @@ function CardForm() {
   );
 }
 
-export default CardForm;
+export default CompleteUpdateForm;

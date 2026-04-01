@@ -1,9 +1,14 @@
 import CardsPage from "./CardsPage";
 
-function UpdateCardsPage() {
+function UpdateCardsPage({ setShowUpdatePopup }) {
   return (
     <div>
-      <CardsPage title="Update User Cards" isDeletePage={false} />
+      <CardsPage
+        title="Update User Cards"
+        isDeletePage={false}
+        isUpdatePage={true}
+        setShowUpdatePopup={setShowUpdatePopup}
+      />
     </div>
   );
 }

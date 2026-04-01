@@ -1,8 +1,20 @@
 import { useState } from "react";
 import deleteCardData from "../api/DeleteCardData";
 
-function Card({ id, name, age, gender, isActive, isDeletePage, cardsLength }) {
+function Card({
+  id,
+  name,
+  age,
+  gender,
+  isActive,
+  isDeletePage,
+  cardsLength,
+  isUpdatePage,
+  setShowUpdatePopup,
+}) {
+  // This state is used to trigger the re-rendering of the component after the card is deleted, if the card is deleted then true. Otherwise delete will be noticeable only after the page is refreshed.
   const [cardDeleted, setCardDeleted] = useState(false);
+
   if (!cardDeleted) {
     return (
       <div className="card-container bg-neutral-50 text-neutral-800 shadow-md py-4 w-60 rounded-md flex flex-col items-center hover:scale-105 cursor-default transition-scale duration-100 ease-in relative">
@@ -28,6 +40,17 @@ function Card({ id, name, age, gender, isActive, isDeletePage, cardsLength }) {
             }}
           >
             Del
+          </button>
+        )}
+        {isUpdatePage && (
+          <button
+            className="absolute right-3 top-1 text-green-500 animate-pulse cursor-pointer hover:scale-110"
+            onClick={() => {
+              setShowUpdatePopup(true);
+              console.log("Eheeee");
+            }}
+          >
+            Update
           </button>
         )}
       </div>
