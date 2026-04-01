@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import updateCardData from "../api/UpdateCardData";
+import updateCardData from "../api/UpdateCardData";
 
 function CompleteUpdateForm({ setShowCompleteUpdateForm }) {
   // requestStatus state is used to show the toast message after the request is made to the server and data is submitted successfully, if yes then true.
@@ -87,13 +87,13 @@ function CompleteUpdateForm({ setShowCompleteUpdateForm }) {
         </div>
         <div className="flex gap-3">
           <button
-            className="rounded-md w-full bg-[#48d04d] hover:bg-[#5de961] text-neutral-50 font-medium cursor-pointer transition-all ease-in duration-150"
+            className="rounded-md w-full bg-[#48d04d] hover:bg-[#5de961] text-neutral-50 cursor-pointer transition-all ease-in duration-150"
             onClick={(event) => {
               event.preventDefault();
               if (!name) {
                 console.log("Please enter something in the name field!");
               } else {
-                // updateCardData();
+                updateCardData();
                 setRequestStatus(true);
               }
             }}
@@ -101,8 +101,9 @@ function CompleteUpdateForm({ setShowCompleteUpdateForm }) {
             Submit
           </button>
           <button
-            className="rounded-md w-full h-8 bg-[#fd3d3d] hover:bg-red-400 text-neutral-50 font-medium cursor-pointer transition-all ease-in duration-150"
-            onClick={() => {
+            className="rounded-md w-full h-8 bg-[#fd3d3d] hover:bg-red-400 text-neutral-50 cursor-pointer transition-all ease-in duration-150"
+            onClick={(e) => {
+              e.preventDefault();
               setShowCompleteUpdateForm(false);
             }}
           >

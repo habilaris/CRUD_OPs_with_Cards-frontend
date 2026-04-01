@@ -11,7 +11,7 @@ function UpdatePopUp({ setShowUpdatePopup, setShowCompleteUpdateForm }) {
       </p>
       <div className="flex gap-2">
         <button
-          className="bg-green-600 text-white px-4 py-2 rounded-2xl mt-4 hover:bg-green-500 transition-colors duration-200 cursor-pointer"
+          className="bg-[#48d04d] hover:bg-[#5de961] text-white px-4 py-2 rounded-2xl mt-4 transition-colors duration-200 cursor-pointer"
           onClick={() => {
             setShowCompleteUpdateForm(true);
             setShowUpdatePopup(false);
@@ -27,7 +27,7 @@ function UpdatePopUp({ setShowUpdatePopup, setShowCompleteUpdateForm }) {
         </button>
 
         <button
-          className="bg-orange-600 text-white px-4 py-2 rounded-full mt-4 hover:bg-red-400 transition-colors duration-200 cursor-pointer absolute right-6"
+          className="bg-[#fd3d3d] hover:bg-red-400 text-white px-4 py-2 rounded-full mt-4 transition-colors duration-200 cursor-pointer absolute right-6"
           onClick={() => {
             setShowUpdatePopup(false);
           }}

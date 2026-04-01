@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import UpdateCardsPage from "./pages/UpdateCardsPage";
 import CompleteUpdateForm from "./components/CompleteUpdateForm";
 import UpdatePopUp from "./components/UpdatePopUp";
+// import fetchCards from "./api/FetchCards";
 
 function App() {
   // Flow of props: App -> UpdateCardsPage -> CardsPage -> Card
@@ -38,7 +39,7 @@ function App() {
         )}
         {/* Complete Update Form */}
         {showCompleteUpdateForm && (
-          <div className="fixed z-100 h-full w-full flex items-center justify-center bg-[rgba(0,0,0,0.5)]">
+          <div className="fixed z-100 h-full w-full flex items-center justify-center bg-[rgba(0,0,0,0.5)] top-0 left-0">
             <CompleteUpdateForm
               setShowCompleteUpdateForm={setShowCompleteUpdateForm}
             />
