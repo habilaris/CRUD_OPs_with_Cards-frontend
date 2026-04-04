@@ -1,7 +1,9 @@
 import { useState } from "react";
 import deleteCardData from "../api/DeleteCardData";
+import UpdateCardData from "../api/UpdateCardData";
 
 function Card({
+  id,
   cardNo,
   name,
   age,
@@ -49,7 +51,8 @@ function Card({
             className="absolute right-3 top-1 text-green-500 font-semibold animate-pulse cursor-pointer hover:scale-110"
             onClick={() => {
               setShowUpdatePopup(true);
-              console.log("Eheeee");
+              // UpdateCardData(id);
+              console.log("Update button clicked for card with id:", id);
             }}
           >
             Update

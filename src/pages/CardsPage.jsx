@@ -21,6 +21,7 @@ function CardsPage({ title, isDeletePage, isUpdatePage, setShowUpdatePopup }) {
           return (
             <Card
               key={card._id} // This doesn't go to prop
+              id={card._id} // This goes to prop, this is used in delete and update operations to identify the card.
               cardNo={index}
               name={card.name}
               age={card.age}

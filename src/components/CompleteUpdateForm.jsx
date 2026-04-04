@@ -93,7 +93,7 @@ function CompleteUpdateForm({ setShowCompleteUpdateForm }) {
               if (!name) {
                 console.log("Please enter something in the name field!");
               } else {
-                updateCardData();
+                updateCardData(id, name, age, gender);
                 setRequestStatus(true);
               }
             }}
