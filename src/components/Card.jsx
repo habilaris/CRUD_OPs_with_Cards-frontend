@@ -1,6 +1,7 @@
 import { useState } from "react";
 import deleteCardData from "../api/DeleteCardData";
 import UpdateCardData from "../api/UpdateCardData";
+import { useNavigate } from "react-router-dom";
 
 function Card({
   id,
@@ -12,10 +13,13 @@ function Card({
   isDeletePage,
   cardsLength,
   isUpdatePage,
-  setShowUpdatePopup,
 }) {
   // This state is used to trigger the re-rendering of the component after the card is deleted, if the card is deleted then true. Otherwise delete will be noticeable only after the page is refreshed.
   const [cardDeleted, setCardDeleted] = useState(false);
+
+  // I am using navigate in update form.
+  const navigate = useNavigate();
+  const card_id = id;
 
   if (!cardDeleted) {
     return (
@@ -28,6 +32,7 @@ function Card({
         <p>Gender: {gender}</p>
         <p>Active: {isActive ? "True" : "False"}</p>
 
+        {/* Delete Button */}
         {isDeletePage && (
           <button
             className="absolute right-3 top-1 text-red-500 font-semibold animate-pulse cursor-pointer hover:scale-110"
@@ -46,12 +51,16 @@ function Card({
             Del
           </button>
         )}
+
+        {/* Update Button */}
         {isUpdatePage && (
           <button
             className="absolute right-3 top-1 text-green-500 font-semibold animate-pulse cursor-pointer hover:scale-110"
             onClick={() => {
-              setShowUpdatePopup(true);
+              // setShowUpdatePopup(true);
               // UpdateCardData(id);
+
+              navigate(`/admin/update-cards/update-popup/${card_id}`);
               console.log("Update button clicked for card with id:", id);
             }}
           >

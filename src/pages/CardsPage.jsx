@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import fetchCards from "../api/FetchCards";
 
-function CardsPage({ title, isDeletePage, isUpdatePage, setShowUpdatePopup }) {
+function CardsPage({ title, isDeletePage, isUpdatePage }) {
   let [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -32,7 +32,6 @@ function CardsPage({ title, isDeletePage, isUpdatePage, setShowUpdatePopup }) {
               isDeletePage={isDeletePage}
               cardsLength={cards.length}
               isUpdatePage={isUpdatePage}
-              setShowUpdatePopup={setShowUpdatePopup}
             />
           );
         })}

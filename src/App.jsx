@@ -1,9 +1,9 @@
-import { useState } from "react";
+// import { useState } from "react";
 import CardsPage from "./pages/CardsPage";
 import HomePage from "./pages/HomePage";
 import CreateCardPage from "./pages/CreateCardPage";
 import List from "./components/List";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
 import Navbar from "./components/Navbar";
 import DeleteCardsPage from "./pages/DeleteCardsPage";
@@ -16,10 +16,10 @@ import UpdatePopUp from "./components/UpdatePopUp";
 function App() {
   // Flow of props: App -> UpdateCardsPage -> CardsPage -> Card
   // SHOWS UPDATE POPUP
-  const [showUpdatePopup, setShowUpdatePopup] = useState(false);
+  // const [showUpdatePopup, setShowUpdatePopup] = useState(false);
 
   // SHOWS COMPLETE UPDATE FORM
-  const [showCompleteUpdateForm, setShowCompleteUpdateForm] = useState(false);
+  // const [showCompleteUpdateForm, setShowCompleteUpdateForm] = useState(false);
   // SHOWS PARTIAL UPDATE FORM
   // const [showPartialUpdateForm, setShowPartialUpdateForm] = useState(false);
 
@@ -27,24 +27,6 @@ function App() {
     <BrowserRouter>
       {/* UI Starts from Here */}
       <div className="bg-neutral-200 w-dvw min-h-dvh flex flex-col items-center justify-center py-35 px-10">
-        {/* Update Popup */}
-        {showUpdatePopup && (
-          <div className="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] bg-opacity-50 flex items-center justify-center z-90">
-            <UpdatePopUp
-              setShowUpdatePopup={setShowUpdatePopup}
-              setShowCompleteUpdateForm={setShowCompleteUpdateForm}
-              // setShowCompletePartialForm={setShowCompletePartialForm}
-            />
-          </div>
-        )}
-        {/* Complete Update Form */}
-        {showCompleteUpdateForm && (
-          <div className="fixed z-100 h-full w-full flex items-center justify-center bg-[rgba(0,0,0,0.5)] top-0 left-0">
-            <CompleteUpdateForm
-              setShowCompleteUpdateForm={setShowCompleteUpdateForm}
-            />
-          </div>
-        )}
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -63,13 +45,24 @@ function App() {
           />
           <Route path="/admin/create-card" element={<CreateCardPage />} />
           <Route path="/admin/delete-cards" element={<DeleteCardsPage />} />
+
+          {/* Parent Route for Update Cards */}
           <Route
             path="/admin/update-cards"
             element={
               // Flow of prop: App -> UpdateCardsPage -> CardsPage -> Card
-              <UpdateCardsPage setShowUpdatePopup={setShowUpdatePopup} />
+              <UpdateCardsPage />
             }
-          />
+          >
+            {/* Child Routes of Update Route */}
+            <Route path="update-popup/:cardId" element={<UpdatePopUp />} />
+            <Route
+              path="complete-update/:cardId"
+              element={<CompleteUpdateForm />}
+            />
+          </Route>
+
+          {/* Error Hangle Page */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
