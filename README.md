@@ -13,3 +13,7 @@ Frontend: https://github.com/habilaris/CRUD_OPs_wtih_Cards-frontend
 Backend: https://github.com/habilaris/CRUD_OPs_wtih_Cards-backend
 
 I would really be glad if you could see and observe the whole app and source, because I can't explain everything and point lol, but there are other small details too.
+
+Todo:
+
+- Update is not showing immediately on the cards page, do something that update shows immediately after the update.

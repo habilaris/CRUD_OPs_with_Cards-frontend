@@ -13,6 +13,7 @@ function Card({
   isDeletePage,
   cardsLength,
   isUpdatePage,
+  setCards,
 }) {
   // This state is used to trigger the re-rendering of the component after the card is deleted, if the card is deleted then true. Otherwise delete will be noticeable only after the page is refreshed.
   const [cardDeleted, setCardDeleted] = useState(false);

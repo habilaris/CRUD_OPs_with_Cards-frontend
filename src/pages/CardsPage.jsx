@@ -32,6 +32,7 @@ function CardsPage({ title, isDeletePage, isUpdatePage }) {
               isDeletePage={isDeletePage}
               cardsLength={cards.length}
               isUpdatePage={isUpdatePage}
+              setCards={setCards}
             />
           );
         })}

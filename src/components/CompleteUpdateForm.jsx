@@ -104,6 +104,7 @@ function CompleteUpdateForm() {
                   const card_id = cardId;
                   updateCardData(card_id, name, age, gender);
                   setRequestStatus(true);
+                  
                 }
               }}
             >

@@ -62,7 +62,7 @@ function App() {
             />
           </Route>
 
-          {/* Error Hangle Page */}
+          {/* Error Handle Page */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>

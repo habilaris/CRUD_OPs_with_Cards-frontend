@@ -5,7 +5,7 @@ async function updateCardData(card_id, name, age, gender) {
     headers: {
       "Content-Type": "application/json",
     },
-    // Temporary data to test update functionality
+
     body: JSON.stringify({
       card_id,
       name,
