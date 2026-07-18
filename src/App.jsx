@@ -11,6 +11,8 @@ import Footer from "./components/Footer";
 import UpdateCardsPage from "./pages/UpdateCardsPage";
 import CompleteUpdateForm from "./components/CompleteUpdateForm";
 import UpdatePopUp from "./components/UpdatePopUp";
+import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/SignUpPage";
 // import fetchCards from "./api/FetchCards";
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
           <Route path="/list" element={<List />} />
           <Route
             path="/admin/cards"

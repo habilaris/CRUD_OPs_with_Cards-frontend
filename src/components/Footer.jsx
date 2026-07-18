@@ -61,7 +61,7 @@ function Footer() {
       </div>
       <hr className="w-[90vw] md:w-[80vw] rounded text-neutral-400 self-center" />
       <p className="text-center py-4 text-neutral-600 px-10">
-        Developed by Habil Aris in 2026 | All rights are reserved &copy;.
+        Developed by Habil Aris in 2026 &copy; | All rights are reserved.
       </p>
     </div>
   );
